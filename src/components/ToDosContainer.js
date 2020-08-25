@@ -7,7 +7,18 @@ export default function ToDosContainer() {
         {text:"second task", done: false},
         {text:"third task", done: false},
         {text:"fourth task", done: false}
-    ]
+    ];
+
+    const todosItem = todos.map(item => {
+        return (
+            <div className="todo-item">
+                <p>{item.text}</p>
+                <div className="action">
+                    <button className="btn">&#10004;</button>
+                </div>
+            </div>
+        );
+    }) 
 
     return (
         <div className="todos-container">
@@ -26,16 +37,7 @@ export default function ToDosContainer() {
             </form>
             <div className="todos">
                 <h3>TO DO</h3>
-                {todos.map(item => {
-                    return (
-                        <div className="todo-item">
-                            <p>{item.text}</p>
-                            <div className="action">
-                                <button className="btn">&#10004;</button>
-                            </div>
-                        </div>
-                    )
-                })}
+                {todosItem}
             </div>
         </div>
     )
