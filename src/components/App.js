@@ -24,7 +24,17 @@ export default class App extends Component {
         ]
       }
     }
-      
+      //need write a method where state is, which we change
+
+    updateItem = (id) => {
+      const UpdatedItems = this.state.items.map(item => {
+        if(item.id===id) {
+          item.done=!item.done
+          return item
+        }
+      })
+    }
+
     AddItem = (InputText) => {
       const item = {
         id: this.state.items.length,
@@ -34,7 +44,7 @@ export default class App extends Component {
       /* this.state.items.push - will be warning directly mute, use setState() */
 
       this.setState({
-        items: [...this.state.items, item]
+        items: [item, ...this.state.items]
       })
     }
   

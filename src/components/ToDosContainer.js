@@ -4,12 +4,23 @@ import ToDoItem from "./ToDoItem";
 export default class ToDosContainer extends React.Component{
 
     //possible to use without constructor
-    
+
     constructor(props) {
         super(props);
         this.state = {
             InputText: ""
         }
+    }
+    
+    formSubmitted = (e) => {
+        e.preventDefault()
+        if(this.state.InputText !==""){
+            this.props.AddItemProps(this.state.InputText)
+            this.setState({
+                InputText: "" 
+            })    
+        }
+        
     }
 
     render() {
@@ -21,12 +32,15 @@ export default class ToDosContainer extends React.Component{
     
     return (
         <div className="todos-container">
-            <form className="todo-form">
+            {/* onSubmit use in form!not in input */}
+            <form className="todo-form" onSubmit={this.formSubmitted}>
                 <label className="input-item">
                     <input 
                     type="text"
                     name="todo"
+                    value = {this.state.InputText}
                     onChange={e => this.setState({InputText: e.target.value})}
+                    
                     />
                 </label>
                 <input 
