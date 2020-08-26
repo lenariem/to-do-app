@@ -1,14 +1,24 @@
 import React from 'react'
 import ToDoItem from "./ToDoItem";
 
-export default function ToDosContainer(props) {
+export default class ToDosContainer extends React.Component{
 
-    const todosItem = props.toDosProps.map(task => {
-        return (
-            <ToDoItem taskProps={task}/>
-        );
+    //possible to use without constructor
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            InputText: ""
+        }
+    }
+
+    render() {
+        const todosItem = this.props.toDosProps.map(task => {
+            return (
+                <ToDoItem taskProps={task}/>
+            );
     }) 
-
+    
     return (
         <div className="todos-container">
             <form className="todo-form">
@@ -16,6 +26,7 @@ export default function ToDosContainer(props) {
                     <input 
                     type="text"
                     name="todo"
+                    onChange={e => this.setState({InputText: e.target.value})}
                     />
                 </label>
                 <input 
@@ -29,5 +40,6 @@ export default function ToDosContainer(props) {
                 {todosItem}
             </div>
         </div>
-    )
+        )
+    }
 }

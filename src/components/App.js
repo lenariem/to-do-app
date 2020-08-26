@@ -13,19 +13,30 @@ export default class App extends Component {
 
       this.state = {
         items: [
-          {text:"first task", done: false},
-          {text:"second task", done: false},
-          {text:"third task", done: false},
-          {text:"fourth task", done: false},
-          {text: "create a website", done: true},
-          {text: "read a book", done: true},
-          {text: "make a call", done: true},
-          {text: "buy a lap top", done: true}
+          {text:"first task", done: false, id: 0},
+          {text:"second task", done: false, id: 1},
+          {text:"third task", done: false, id: 2},
+          {text:"fourth task", done: false, id: 3},
+          {text: "create a website", done: true, id: 4},
+          {text: "read a book", done: true, id: 5},
+          {text: "make a call", done: true, id: 6},
+          {text: "buy a lap top", done: true, id: 7}
         ]
       }
     }
       
+    AddItem = (InputText) => {
+      const item = {
+        id: this.state.items.length,
+        text: InputText,
+        done: false
+      }
+      /* this.state.items.push - will be warning directly mute, use setState() */
 
+      this.setState({
+        items: [...this.state.items, item]
+      })
+    }
   
   render() {
 
@@ -35,7 +46,7 @@ export default class App extends Component {
     return (
       <div className="app">
         <Navigation />
-        <ToDosContainer toDosProps={toDos}/>
+        <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem}/>
         <ToDonesContainer toDonesProps={toDones}/>
       </div>
     )
