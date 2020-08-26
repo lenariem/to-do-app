@@ -14,7 +14,7 @@ export default function ToDoItem(props) {
             <div className="action">
                 {/* arrow because we cannot call function directly, will call it all time */}
                 <button className="btn" onClick={() => props.updateItemProps(props.taskProps.id)}>&#10004;</button>
-                <button className="btn" onClick={() => props.deleteItemProps(props.taskProps.id)}>X</button>
+                <button className="btn" onClick={() => props.deleteItemProps(props.taskProps.id)}>&#128465;</button>
             </div>
         </div>
     )
