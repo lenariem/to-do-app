@@ -6,7 +6,7 @@ export default function ToDonesContainer(props) {
     const toDonesItems = props.toDonesProps.map(task => {
         return (
             <ToDoneItem key ={task.id} taskProps={task} updateItemProps =
-            {props.updateItemProps} />
+            {props.updateItemProps} deleteItemProps={props.deleteItemProps} />
         );
     });
 

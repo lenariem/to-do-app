@@ -14,7 +14,7 @@ export default class ToDosContainer extends React.Component{
     
     formSubmitted = (e) => {
         e.preventDefault()
-        if(this.state.InputText !==""){
+        if(this.state.InputText.trim() !==""){
             this.props.AddItemProps(this.state.InputText)
             this.setState({
                 InputText: "" 
@@ -23,11 +23,14 @@ export default class ToDosContainer extends React.Component{
         
     }
 
+    
+
     render() {
         const todosItem = this.props.toDosProps.map(task => {
             return (
+                /* we need key because map made a new array and we need unique keys for this new items in new array */
                 <ToDoItem key={task.id} taskProps={task} updateItemProps=
-            {this.props.updateItemProps}/>
+            {this.props.updateItemProps} deleteItemProps={this.props.deleteItemProps}/>
             );
     }) 
     

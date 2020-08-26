@@ -52,6 +52,14 @@ export default class App extends Component {
         items: [item, ...this.state.items]
       })
     }
+
+    deleteItem = (id) => {
+      const updatedItem = this.state.items.filter(item =>  item.id !== id)
+      
+      this.setState({
+        items: updatedItem
+      }) 
+  }
   
   render() {
 
@@ -61,8 +69,8 @@ export default class App extends Component {
     return (
       <div className="app">
         <Navigation />
-        <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem} updateItemProps = {this.updateItem}/>
-        <ToDonesContainer toDonesProps={toDones} updateItemProps = {this.updateItem}/>
+        <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem} updateItemProps = {this.updateItem}  deleteItemProps={this.deleteItem} />
+        <ToDonesContainer toDonesProps={toDones} updateItemProps = {this.updateItem}  deleteItemProps={this.deleteItem} />
       </div>
     )
   }
