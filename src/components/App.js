@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../css/App.scss";
-import Navigation from "./Navigation"
-import ToDosContainer from "./ToDosContainer"
+import Navigation from "./Navigation";
+import ToDosContainer from "./ToDosContainer";
 import ToDonesContainer from './ToDonesContainer';
 
 
@@ -27,11 +27,16 @@ export default class App extends Component {
       //need write a method where state is, which we change
 
     updateItem = (id) => {
-      const UpdatedItems = this.state.items.map(item => {
-        if(item.id===id) {
-          item.done=!item.done
+      const updatedItems = this.state.items.map(item => {
+        if (item.id === id) {
+          item.done = !item.done
+          return item
+        } else {
           return item
         }
+      })
+      this.setState({
+        items: updatedItems
       })
     }
 
@@ -56,8 +61,8 @@ export default class App extends Component {
     return (
       <div className="app">
         <Navigation />
-        <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem}/>
-        <ToDonesContainer toDonesProps={toDones}/>
+        <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem} updateItemProps = {this.updateItem}/>
+        <ToDonesContainer toDonesProps={toDones} updateItemProps = {this.updateItem}/>
       </div>
     )
   }

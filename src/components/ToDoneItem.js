@@ -5,7 +5,7 @@ export default function ToDoneItem(props) {
         <div className="todones-item">
             <p>{props.taskProps.text}</p>
             <div className="action">
-                <button className="btn">&#8635;</button>
+                <button className="btn" onClick ={()=>props.updateItemProps(props.taskProps.id)}>&#8635;</button>
             </div>
         </div>
     )

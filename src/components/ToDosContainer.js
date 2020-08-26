@@ -26,7 +26,8 @@ export default class ToDosContainer extends React.Component{
     render() {
         const todosItem = this.props.toDosProps.map(task => {
             return (
-                <ToDoItem taskProps={task}/>
+                <ToDoItem taskProps={task} updateItemProps=
+            {this.props.updateItemProps}/>
             );
     }) 
     

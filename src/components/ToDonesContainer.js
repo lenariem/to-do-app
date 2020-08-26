@@ -5,9 +5,11 @@ export default function ToDonesContainer(props) {
 
     const toDonesItems = props.toDonesProps.map(task => {
         return (
-            <ToDoneItem taskProps={task}/>
+            <ToDoneItem taskProps={task} updateItemProps =
+            {props.updateItemProps} />
         );
-    })
+    });
+    
     return (
         <div className="todones-container">
             <h3>BACKLOG</h3>
