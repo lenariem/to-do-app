@@ -37,6 +37,9 @@ export default class App extends Component {
       })
       this.setState({
         items: updatedItems
+      }, ()=>{
+        //if you use the same name for key it will overwrite previous one
+        localStorage.setItem("to-do-app",JSON.stringify(this.state.items))
       })
     }
 
@@ -50,6 +53,9 @@ export default class App extends Component {
 
       this.setState({
         items: [item, ...this.state.items]
+      }, ()=> {
+        /* local storage; with JSON,stringify convert arr to string */
+        localStorage.setItem("to-do-app",JSON.stringify(this.state.items))
       })
     }
 
@@ -58,6 +64,9 @@ export default class App extends Component {
       
       this.setState({
         items: updatedItem
+      }, ()=> {
+        //will update local storage after delete item
+        localStorage.setItem("to-do-app",JSON.stringify(this.state.items))
       }) 
   }
   
