@@ -60,11 +60,12 @@ export default class App extends Component {
     }
 
     //one time we need datas from local storage, componentDidMount - best place to fetch data
+    //we need to receive an actual local storage
     componentDidMount(){
       //get data stored in local storage
-      let storedItems = localStorage.getItem("to-do-app")
+      let storedItems = localStorage.getItem("to-do-app");
       //to convert string to object
-      let convertedToOriginal = JSON.parse(storedItems)
+      let convertedToOriginal = JSON.parse(storedItems);
 
         //to check if item where before execute
       if(storedItems !== null) {
@@ -74,6 +75,9 @@ export default class App extends Component {
         })
       }
     }
+
+    //another way with static getDerivedStateFromProps(state)
+  
 
     deleteItem = (id) => {
       const updatedItem = this.state.items.filter(item =>  item.id !== id)
