@@ -58,16 +58,21 @@ export default class App extends Component {
         localStorage.setItem("to-do-app",JSON.stringify(this.state.items))
       })
     }
+
     //one time we need datas from local storage, componentDidMount - best place to fetch data
     componentDidMount(){
       //get data stored in local storage
       let storedItems = localStorage.getItem("to-do-app")
       //to convert string to object
       let convertedToOriginal = JSON.parse(storedItems)
-      //to store in state
-      this.setState({
-        items: convertedToOriginal
-      })
+
+        //to check if item where before execute
+      if(storedItems !== null) {
+        //to store in state
+        this.setState({
+          items: convertedToOriginal
+        })
+      }
     }
 
     deleteItem = (id) => {
