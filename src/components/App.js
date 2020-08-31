@@ -3,6 +3,9 @@ import "../css/App.scss";
 import Navigation from "./Navigation";
 import ToDosContainer from "./ToDosContainer";
 import ToDonesContainer from './ToDonesContainer';
+import Help from "./Help";
+import {BrowserRouter,Switch,Route} from "react-router-dom";
+import NotFound from './NotFound';
 
 
 
@@ -96,11 +99,28 @@ export default class App extends Component {
     const toDos = this.state.items.filter(item => item.done===false);
 
     return (
-      <div className="app">
-        <Navigation />
-        <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem} updateItemProps = {this.updateItem}  deleteItemProps={this.deleteItem} />
-        <ToDonesContainer toDonesProps={toDones} updateItemProps = {this.updateItem}  deleteItemProps={this.deleteItem} />
-      </div>
+      <BrowserRouter>
+        <div className="app">
+          <Navigation />
+         {/* {/* <Route path="/" component={NameOfTheComponent}/>  //you will receive browserRouter props but not pass custom props*/}
+          
+          {/* <Route path="/" render={(props)=><ComponentTag {...props} customerProps/>}/> //you will receive browserRouter props and pass custom props */}
+      
+       {/*    <Route path="/" //you will not receive browserRouter props but can pass custom props>
+            <Components1/>
+            <Components2/>
+          </Route> */} 
+        <Switch>
+          <Route exact path="/">
+            <ToDosContainer toDosProps={toDos} AddItemProps={this.AddItem} updateItemProps = {this.updateItem}  deleteItemProps={this.deleteItem} />
+            <ToDonesContainer toDonesProps={toDones} updateItemProps = {this.updateItem}  deleteItemProps={this.deleteItem} />
+            
+          </Route>
+          <Route exact path="/help" component={Help} />
+          <Route component={NotFound} />
+        </Switch>
+        </div>
+      </BrowserRouter>
     )
   }
 }
