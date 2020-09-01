@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lenariem/to-do-app/static/css/main.5d67a9a3.chunk.css",
+    "main.js": "/lenariem/to-do-app/static/js/main.2b067b19.chunk.js",
+    "main.js.map": "/lenariem/to-do-app/static/js/main.2b067b19.chunk.js.map",
+    "runtime-main.js": "/lenariem/to-do-app/static/js/runtime-main.8b69f9a7.js",
+    "runtime-main.js.map": "/lenariem/to-do-app/static/js/runtime-main.8b69f9a7.js.map",
+    "static/js/2.3ec21336.chunk.js": "/lenariem/to-do-app/static/js/2.3ec21336.chunk.js",
+    "static/js/2.3ec21336.chunk.js.map": "/lenariem/to-do-app/static/js/2.3ec21336.chunk.js.map",
+    "index.html": "/lenariem/to-do-app/index.html",
+    "precache-manifest.d58ebdbd843869d0310d0a4537b1480b.js": "/lenariem/to-do-app/precache-manifest.d58ebdbd843869d0310d0a4537b1480b.js",
+    "service-worker.js": "/lenariem/to-do-app/service-worker.js",
+    "static/css/main.5d67a9a3.chunk.css.map": "/lenariem/to-do-app/static/css/main.5d67a9a3.chunk.css.map",
+    "static/js/2.3ec21336.chunk.js.LICENSE.txt": "/lenariem/to-do-app/static/js/2.3ec21336.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8b69f9a7.js",
+    "static/js/2.3ec21336.chunk.js",
+    "static/css/main.5d67a9a3.chunk.css",
+    "static/js/main.2b067b19.chunk.js"
+  ]
+}
