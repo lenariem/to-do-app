@@ -1,12 +1,15 @@
-import React from 'react'
-import ToDoneItem from './ToDoneItem';
+import React from "react";
+import ToDoneItem from "./ToDoneItem";
 
 export default function ToDonesContainer(props) {
-
-    const toDonesItems = props.toDonesProps.map(task => {
+    const toDonesItems = props.toDonesProps.map((task) => {
         return (
-            <ToDoneItem key ={task.id} taskProps={task} updateItemProps =
-            {props.updateItemProps} deleteItemProps={props.deleteItemProps} />
+        <ToDoneItem
+            key={task.id}
+            taskProps={task}
+            updateItemProps={props.updateItemProps}
+            deleteItemProps={props.deleteItemProps}
+        />
         );
     });
 
@@ -15,5 +18,5 @@ export default function ToDonesContainer(props) {
             <h3>BACKLOG</h3>
             {toDonesItems}
         </div>
-    )
+    );
 }

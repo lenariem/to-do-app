@@ -5,12 +5,10 @@ export default class ToDosContainer extends React.Component{
 
     //possible to use without constructor
 
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             InputText: ""
         }
-    }
+    
     
     formSubmitted = (e) => {
         e.preventDefault()
